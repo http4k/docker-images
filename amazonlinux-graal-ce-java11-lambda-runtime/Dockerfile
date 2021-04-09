@@ -10,7 +10,7 @@ RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm
 RUN tar -zxvf /tmp/${GRAAL_FILENAME} -C /tmp && mv /tmp/graalvm-ce-${JDK_VERSION}-${GRAAL_VERSION} /usr/lib/graalvm
 RUN rm -rf /tmp/*
 
-# build bootstrap file
+# build bootstrap script
 RUN echo "#!/bin/sh" >> bootstrap
 RUN echo "set -euo pipefail" >> bootstrap
 RUN echo "./function -Xmx\"\$AWS_LAMBDA_FUNCTION_MEMORY_SIZE\"m -Djava.library.path=\$(pwd)" >> bootstrap
@@ -19,7 +19,7 @@ RUN chmod 777 bootstrap
 # install graalvm
 RUN /usr/lib/graalvm/bin/gu install native-image
 
-# build native image
+# build package script
 RUN echo "#!/bin/sh" >> package
 RUN echo "/usr/lib/graalvm/bin/native-image --enable-url-protocols=https --allow-incomplete-classpath -H:+ReportExceptionStackTraces --no-server -jar \$1 function" >> package
 RUN echo "chmod 777 function" >> package
