@@ -10,8 +10,6 @@ RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm
 RUN tar -zxvf /tmp/${GRAAL_FILENAME} -C /tmp && mv /tmp/graalvm-ce-${JDK_VERSION}-${GRAAL_VERSION} /usr/lib/graalvm
 RUN rm -rf /tmp/*
 
-WORKDIR /home/application
-
 # build bootstrap file
 RUN echo "#!/bin/sh" >> bootstrap
 RUN echo "set -euo pipefail" >> bootstrap
