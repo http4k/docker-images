@@ -17,3 +17,6 @@ RUN echo "#!/bin/sh" >> bootstrap
 RUN echo "set -euo pipefail" >> bootstrap
 RUN echo "./function -Xmx\"\$AWS_LAMBDA_FUNCTION_MEMORY_SIZE\"m -Djava.library.path=\$(pwd)" >> bootstrap
 RUN chmod 777 bootstrap
+
+# install graalvm
+RUN /usr/lib/graalvm/bin/gu install native-image
