@@ -18,3 +18,10 @@ RUN chmod 777 bootstrap
 
 # install graalvm
 RUN /usr/lib/graalvm/bin/gu install native-image
+
+# build native image
+RUN echo "#!/bin/sh" >> package
+RUN echo "/usr/lib/graalvm/bin/native-image --enable-url-protocols=https --allow-incomplete-classpath -H:+ReportExceptionStackTraces --no-server -jar \$1 function" >> package
+RUN echo "chmod 777 function" >> package
+RUN echo "zip -j function.zip bootstrap function" >> package
+RUN chmod 777 package
