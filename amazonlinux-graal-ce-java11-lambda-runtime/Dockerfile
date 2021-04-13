@@ -14,9 +14,10 @@ RUN rm -rf /tmp/*
 RUN /usr/lib/graalvm/bin/gu install native-image
 
 # add lambda runtime bootstrap script
-ADD bootstrap bootstrap
+COPY bootstrap .
 RUN chmod 777 bootstrap
 
 # add script to create native executable and zip it
-ADD nativify nativifyAndPackageZip
+COPY nativifyAndPackageZip .
 RUN chmod 777 nativifyAndPackageZip
+RUN ls -la
