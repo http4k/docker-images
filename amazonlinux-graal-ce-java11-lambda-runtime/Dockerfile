@@ -18,5 +18,5 @@ COPY bootstrap .
 RUN chmod 777 bootstrap
 
 # add script to create native executable and zip it
-COPY nativifyAndPackageZip .
-RUN chmod 777 nativifyAndPackageZip
+COPY packageZip .
+RUN chmod 777 packageZip
