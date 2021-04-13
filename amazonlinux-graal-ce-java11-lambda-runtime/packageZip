@@ -1,5 +1,5 @@
 #!/bin/sh
 set -euo pipefail
-/usr/lib/graalvm/bin/native-image --enable-url-protocols=https --allow-incomplete-classpath -H:+ReportExceptionStackTraces --no-server -jar $1 function
+/usr/lib/graalvm/bin/native-image --enable-url-protocols=https --allow-incomplete-classpath -H:+ReportExceptionStackTraces --no-server -jar function.jar function
 chmod 777 function
 zip -j function.zip bootstrap function
