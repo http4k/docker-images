@@ -13,15 +13,10 @@ RUN rm -rf /tmp/*
 # install graalvm
 RUN /usr/lib/graalvm/bin/gu install native-image
 
-# build bootstrap script
-RUN echo "#!/bin/sh" >> bootstrap
-RUN echo "set -euo pipefail" >> bootstrap
-RUN echo "./function -Xmx\"\$AWS_LAMBDA_FUNCTION_MEMORY_SIZE\"m -Djava.library.path=\$(pwd)" >> bootstrap
+# add lambda runtime bootstrap script
+ADD bootstrap bootstrap
 RUN chmod 777 bootstrap
 
-# build package script
-RUN echo "#!/bin/sh" >> package
-RUN echo "/usr/lib/graalvm/bin/native-image --enable-url-protocols=https --allow-incomplete-classpath -H:+ReportExceptionStackTraces --no-server -jar \$1 function" >> package
-RUN echo "chmod 777 function" >> package
-RUN echo "zip -j function.zip bootstrap function" >> package
-RUN chmod 777 package
+# add script to create native executable and zip it
+ADD nativify nativifyAndPackageZip
+RUN chmod 777 nativifyAndPackageZip
