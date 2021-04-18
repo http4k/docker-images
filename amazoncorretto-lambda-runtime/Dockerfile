@@ -10,3 +10,8 @@ RUN chmod 777 bootstrap
 # add script to create native executable and zip it
 COPY packageZip .
 RUN chmod 777 packageZip
+
+# set entry point script - this takes 2 args:
+# 1. the input UberJar
+# 2. the path to the output ZIP
+ENTRYPOINT ["./packageZip"]
