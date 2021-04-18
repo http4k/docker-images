@@ -6,6 +6,8 @@ FROM amazonlinux:$AWS_LINUX_VERSION
 
 # install graal
 ENV LANG=en_US.UTF-8
+ENV GRAAL_VERSION $GRAAL_VERSION
+ENV JDK_VERSION $JDK_VERSION
 ENV GRAAL_FILENAME graalvm-ce-${JDK_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz
 RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel zip
 RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FILENAME} -o /tmp/${GRAAL_FILENAME}
