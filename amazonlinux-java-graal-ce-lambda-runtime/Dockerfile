@@ -1,10 +1,9 @@
+# install base linux + tools
 ARG AWS_LINUX_VERSION=2018.03.0.20191014.0
-
 FROM amazonlinux:$AWS_LINUX_VERSION
-
 RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel zip
 
-# install graal
+# get graal...
 ARG GRAAL_VERSION=21.0.0.2
 ARG JAVA_VERSION=java11
 ENV GRAAL_FILENAME=graalvm-ce-${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz
@@ -13,7 +12,7 @@ RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm
 RUN tar -zxvf /tmp/${GRAAL_FILENAME} -C /tmp && mv /tmp/graalvm-ce-${JAVA_VERSION}-${GRAAL_VERSION} /usr/lib/graalvm
 RUN rm -rf /tmp/*
 
-# install graalvm
+# ...and install it...
 RUN /usr/lib/graalvm/bin/gu install native-image
 
 # add lambda runtime bootstrap script
