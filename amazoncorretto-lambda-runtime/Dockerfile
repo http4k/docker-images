@@ -1,4 +1,5 @@
-FROM amazoncorretto:11
+ARG AMAZON_CORRETTO_VERSION=11
+FROM amazoncorretto:$AMAZON_CORRETTO_VERSION
 
 RUN yum -y install zip
 
