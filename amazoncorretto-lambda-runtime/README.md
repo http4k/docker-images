@@ -4,7 +4,7 @@ This image builds a runtime ZIP file containing a cut-down JVM based on Amazon C
 
 Basic usage for an example project:
 ```shell
-../gradlew :example:shadowJar
+./gradlew shadowJar
 docker build --build-arg JAR=build/libs/example.jar . -t function
 mkdir -p build
 docker run --rm --entrypoint cat function function.zip > build/function.zip
