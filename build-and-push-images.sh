@@ -1,9 +1,9 @@
 #!/bin/sh
 set -euo pipefail
 docker login
-pushd amazonlinux-graal-ce-java11-lambda-runtime
+pushd amazonlinux-java-graal-ce-lambda-runtime
 ./build-and-push.sh
 popd
-pushd amazonlinux-java11-lambda-runtime
+pushd amazonlinux-java-lambda-runtime
 ./build-and-push.sh
 popd
