@@ -2,11 +2,11 @@
 set -eu
 docker login
 
-pushd amazoncorretto-lambda-runtime
+cd amazoncorretto-lambda-runtime
 ./build-and-push.sh
-popd
+cd ..
 
-pushd amazonlinux-java-graal-ce-lambda-runtime
+cd amazonlinux-java-graal-ce-lambda-runtime
 ./build-and-push.sh
-popd
+cd ..
 
