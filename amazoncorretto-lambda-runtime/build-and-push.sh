@@ -5,4 +5,4 @@ docker build --build-arg AMAZON_CORRETTO_VERSION=$AMAZON_CORRETTO_VERSION \
 -t http4k/amazoncorretto-lambda-runtime \
 -t http4k/amazoncorretto-lambda-runtime:amazoncorretto$AMAZON_CORRETTO_VERSION \
 .
-docker push http4k/amazoncorretto-lambda-runtime
+docker push http4k/amazoncorretto-lambda-runtime:amazoncorretto$AMAZON_CORRETTO_VERSION

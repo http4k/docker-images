@@ -10,4 +10,4 @@ docker build --build-arg AWS_LINUX_VERSION=$AWS_LINUX_VERSION \
 -t http4k/amazonlinux-java-graal-ce-lambda-runtime \
 -t http4k/amazonlinux-java-graal-ce-lambda-runtime:amazonlinux$AWS_LINUX_VERSION-$JAVA_VERSION-graalce$GRAAL_VERSION \
 .
-docker push http4k/amazonlinux-java-graal-ce-lambda-runtime
+docker push http4k/amazonlinux-java-graal-ce-lambda-runtime:amazonlinux$AWS_LINUX_VERSION-$JAVA_VERSION-graalce$GRAAL_VERSION
