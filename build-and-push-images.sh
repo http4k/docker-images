@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euo pipefail
+set -eu
 docker login
 
 pushd amazoncorretto-lambda-runtime

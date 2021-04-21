@@ -1,5 +1,5 @@
 #!/bin/sh
-set -euo pipefail
+set -eu
 export AWS_LINUX_VERSION=2018.03.0.20191014.0
 export JAVA_VERSION=java11
 export GRAAL_VERSION=21.1.0
