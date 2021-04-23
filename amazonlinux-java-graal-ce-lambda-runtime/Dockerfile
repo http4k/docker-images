@@ -2,7 +2,7 @@
 ARG AWS_LINUX_VERSION=2.0.20210326.0
 FROM amazonlinux:$AWS_LINUX_VERSION
 
-RUN yum install -y gcc gcc-c++ tar libc6-dev binutils zlib1g-dev curl bash zlib zlib-devel zip gzip
+RUN yum install -y gcc gcc-c++ libc6-dev binutils zlib1g-dev curl bash zlib zlib-devel tar zip gzip
 
 # get graal...
 ARG GRAAL_VERSION=21.1.0
