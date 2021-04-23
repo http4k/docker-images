@@ -1,5 +1,5 @@
 # install base linux + tools
-ARG AWS_LINUX_VERSION=2018.03.0.20191014.0
+ARG AWS_LINUX_VERSION=2018.03.0.20210319.0
 FROM amazonlinux:$AWS_LINUX_VERSION
 RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel zip
 
