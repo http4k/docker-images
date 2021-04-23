@@ -1,14 +1,16 @@
 # install base linux + tools
-ARG AWS_LINUX_VERSION=2018.03.0.20210319.0
+ARG AWS_LINUX_VERSION=2.0.20210326.0
 FROM amazonlinux:$AWS_LINUX_VERSION
-RUN yum install -y gcc gcc-c++ libc6-dev  zlib1g-dev curl bash zlib zlib-devel zip
+
+RUN yum install -y gcc gcc-c++ tar libc6-dev binutils zlib1g-dev curl bash zlib zlib-devel zip gzip
 
 # get graal...
-ARG GRAAL_VERSION=21.0.0.2
+ARG GRAAL_VERSION=21.1.0
 ARG JAVA_VERSION=java11
 ENV GRAAL_FILENAME=graalvm-ce-${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz
 ENV LANG=en_US.UTF-8
 RUN curl -4 -L https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/${GRAAL_FILENAME} -o /tmp/${GRAAL_FILENAME}
+
 RUN tar -zxvf /tmp/${GRAAL_FILENAME} -C /tmp && mv /tmp/graalvm-ce-${JAVA_VERSION}-${GRAAL_VERSION} /usr/lib/graalvm
 RUN rm -rf /tmp/*
 

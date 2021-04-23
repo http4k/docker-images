@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
-export AWS_LINUX_VERSION=2018.03.0.20210319.0
+export AWS_LINUX_VERSION=2.0.20210326.0
 export JAVA_VERSION=java11
-export GRAAL_VERSION=21.0.0.2
+export GRAAL_VERSION=21.1.0
 
 docker build --build-arg AWS_LINUX_VERSION=$AWS_LINUX_VERSION \
 --build-arg JAVA_VERSION=$JAVA_VERSION \
