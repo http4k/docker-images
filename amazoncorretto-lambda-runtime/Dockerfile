@@ -1,5 +1,5 @@
 # install base linux + tools
-ARG AMAZON_CORRETTO_VERSION=11.0.15.9-1
+ARG AMAZON_CORRETTO_VERSION=11.0.17
 FROM amazoncorretto:$AMAZON_CORRETTO_VERSION
 RUN yum -y install zip
 
