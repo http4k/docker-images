@@ -1,6 +1,6 @@
-# amazoncorretto-lambda-runtime / amazoncorretto-lambda-runtime-amd64
+# amazoncorretto-lambda-runtime / amazoncorretto-lambda-runtime-arm64v8
 
-This image builds a runtime ZIP file containing a cut-down JVM based on Amazon Corretto for both x86 and AMD64 architectures. It is designed to work with a ShadowJar containing an http4k AWS Lambda function.
+This image builds a runtime ZIP file containing a cut-down JVM based on Amazon Corretto for both x86 and arm64v8 architectures. It is designed to work with a ShadowJar containing an http4k AWS Lambda function.
 
 Basic usage for an example project. Arguments to the docker run command:
 1. UBERJAR_PATH = path the UberJar. This is loaded from inside the container at source/<UBERJAR_PATH>
