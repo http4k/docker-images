@@ -15,3 +15,5 @@ http4k/amazonlinux-java-graal-ce-lambda-runtime:latest <UBERJAR_PATH> <OUTPUT_ZI
 The Docker image itself includes 2 script files loaded from this repo:
 - **bootstrap** - the standard bootstrap file used by the Aws Lambda runner. Detects and passes the lambda memory settings to the JVM.
 - **packageZip** - takes the input ShadowJar (renamed to function.jar), uses `native-image` to create a native binary, and creates the function.zip package. 
+
+Images are hosted in [DockerHub](https://hub.docker.com/r/http4k)

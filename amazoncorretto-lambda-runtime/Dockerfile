@@ -1,6 +1,6 @@
 # install base linux + tools
-ARG AMAZON_CORRETTO_VERSION=11.0.18
-FROM amazoncorretto:$AMAZON_CORRETTO_VERSION
+ARG AMAZON_CORRETTO_IMAGE=amazoncorretto:11.0.18
+FROM $AMAZON_CORRETTO_IMAGE
 RUN yum -y install zip
 
 # add lambda runtime bootstrap script
