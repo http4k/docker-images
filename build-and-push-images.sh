@@ -7,18 +7,18 @@ GRAAL_JAVA_VERSIONS=("java11" "java17" "java19")
 
 cd amazoncorretto-lambda-runtime
 for version in "${JAVA_VERSIONS[@]}"; do
-    ./build-and-push.sh $$version
+    ./build-and-push.sh $version
 done
 cd ..
 
 cd amazoncorretto-lambda-runtime-arm64
 for version in "${JAVA_VERSIONS[@]}"; do
-    ./build-and-push.sh $$version
+    ./build-and-push.sh $version
 done
 cd ..
 
 cd amazonlinux-java-graal-ce-lambda-runtime
 for version in "${GRAAL_JAVA_VERSIONS[@]}"; do
-    ./build-and-push.sh $$version
+    ./build-and-push.sh $version
 done
 cd ..
