@@ -4,9 +4,14 @@ set -euo pipefail
 cp source/"$1" ./function.jar
 FUNCTION_ZIP="${2:-function.zip}"
 
-# create cut down JVM
-MODULES=$(jdeps --print-module-deps --ignore-missing-deps function.jar) && jlink --add-modules "$MODULES",jdk.crypto.ec,java.net.http  --compress 2 --no-header-files --no-man-pages --output /opt/dist
+echo Compacting JVM with jdeps...
+MODULES=$(jdeps --print-module-deps --ignore-missing-deps function.jar)
 
-# build zip
+echo Linking JVM with jlink...
+jlink --add-modules "$MODULES",jdk.crypto.ec,java.net.http  --compress 2 --no-header-files --no-man-pages --output /opt/dist
+
+echo Building ZIP...
 mkdir -p $(dirname source/"$FUNCTION_ZIP")
 zip -r source/"$FUNCTION_ZIP" bootstrap function.jar opt/*
+
+echo Done!
