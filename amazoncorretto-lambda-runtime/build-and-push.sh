@@ -10,6 +10,8 @@ docker build --build-arg AMAZON_CORRETTO_IMAGE=amazoncorretto:$AMAZON_CORRETTO_V
 -t http4k/amazoncorretto-lambda-runtime:amazoncorretto$AMAZON_CORRETTO_VERSION \
 .
 
+docker push -a http4k/amazoncorretto-lambda-runtime
+
 docker build --build-arg AMAZON_CORRETTO_IMAGE=amd64/amazoncorretto:$AMAZON_CORRETTO_VERSION \
 -t http4k/amazoncorretto-lambda-runtime-amd64 \
 -t http4k/amazoncorretto-lambda-runtime-amd64:latest \
@@ -17,4 +19,4 @@ docker build --build-arg AMAZON_CORRETTO_IMAGE=amd64/amazoncorretto:$AMAZON_CORR
 -t http4k/amazoncorretto-lambda-runtime-amd64:amazoncorretto$AMAZON_CORRETTO_VERSION \
 .
 
-docker push -a http4k/amazoncorretto-lambda-runtime
+docker push -a http4k/amazoncorretto-lambda-runtime-amd64
