@@ -3,9 +3,9 @@ set -eu
 docker login
 
 cd amazoncorretto-lambda-runtime
-./build-and-push.sh 11.0.17
-./build-and-push.sh 17.0.5
-./build-and-push.sh 19.0.1
+./build-and-push.sh 11.0.18
+./build-and-push.sh 17.0.6
+./build-and-push.sh 19.0.2
 cd ..
 
 cd amazonlinux-java-graal-ce-lambda-runtime
