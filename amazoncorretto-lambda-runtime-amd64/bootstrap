@@ -1,3 +1,3 @@
 #!/bin/sh
 set -euo pipefail
-java -Xmx"$AWS_LAMBDA_FUNCTION_MEMORY_SIZE"m -jar function.jar
+/bin/java -Xmx"$AWS_LAMBDA_FUNCTION_MEMORY_SIZE"m -jar function.jar
