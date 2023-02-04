@@ -10,4 +10,4 @@ docker build --platform linux/arm64 --build-arg AMAZON_CORRETTO_IMAGE=arm64v8/am
 -t http4k/amazoncorretto-lambda-runtime-arm64:amazoncorretto$AMAZON_CORRETTO_VERSION \
 .
 
-docker push -a http4k/amazoncorretto-lambda-runtime-arm64v8
+docker push -a http4k/amazoncorretto-lambda-runtime-arm64
