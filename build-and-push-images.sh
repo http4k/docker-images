@@ -2,21 +2,23 @@
 set -eu
 docker login
 
+JAVA_VERSIONS=("11.0.18" "17.0.6" "19.0.2")
+GRAAL_JAVA_VERSIONS=("java11" "java17" "java19")
+
 cd amazoncorretto-lambda-runtime
-./build-and-push.sh 11.0.18
-./build-and-push.sh 17.0.6
-./build-and-push.sh 19.0.2
+for version in "${JAVA_VERSIONS[@]}"; do
+    ./build-and-push.sh $$version
+done
 cd ..
 
 cd amazoncorretto-lambda-runtime-arm64
-./build-and-push.sh 11.0.18
-./build-and-push.sh 17.0.6
-./build-and-push.sh 19.0.2
+for version in "${JAVA_VERSIONS[@]}"; do
+    ./build-and-push.sh $$version
+done
 cd ..
 
 cd amazonlinux-java-graal-ce-lambda-runtime
-./build-and-push.sh java11
-./build-and-push.sh java17
-./build-and-push.sh java19
+for version in "${JAVA_VERSIONS[@]}"; do
+    ./build-and-push.sh $$version
+done
 cd ..
-
