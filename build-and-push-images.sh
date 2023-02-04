@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 docker login
 
@@ -18,7 +18,7 @@ done
 cd ..
 
 cd amazonlinux-java-graal-ce-lambda-runtime
-for version in "${JAVA_VERSIONS[@]}"; do
+for version in "${GRAAL_JAVA_VERSIONS[@]}"; do
     ./build-and-push.sh $$version
 done
 cd ..
