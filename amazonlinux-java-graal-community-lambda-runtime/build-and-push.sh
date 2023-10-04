@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
-export AWS_LINUX_VERSION=2.0.20230119.1
-export JAVA_VERSION=$1
+export AWS_LINUX_VERSION=2.0.20230912.0
+export JAVA_VERSION=jdk-$1
 
 docker build --build-arg AWS_LINUX_VERSION=$AWS_LINUX_VERSION \
 --build-arg JAVA_VERSION="$JAVA_VERSION" \

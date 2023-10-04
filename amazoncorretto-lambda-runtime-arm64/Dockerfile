@@ -1,5 +1,5 @@
 # install base linux + tools
-ARG AMAZON_CORRETTO_IMAGE=arm64v8/amazoncorretto:11.0.18
+ARG AMAZON_CORRETTO_IMAGE=arm64v8/amazoncorretto:21.0.0
 FROM $AMAZON_CORRETTO_IMAGE
 RUN yum -y install zip
 
