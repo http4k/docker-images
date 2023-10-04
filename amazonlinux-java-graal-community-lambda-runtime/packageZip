@@ -1,0 +1,15 @@
+#!/bin/sh
+set -euo pipefail
+
+cp source/"$1" ./function.jar
+FUNCTION_ZIP="${2:-function.zip}"
+
+echo Creating native-image...
+/usr/lib/graalvm/bin/native-image --enable-url-protocols=https -H:+ReportExceptionStackTraces --no-server -jar function.jar function
+chmod 777 function
+
+echo Building ZIP...
+mkdir -p $(dirname source/"$FUNCTION_ZIP")
+zip -j source/"$FUNCTION_ZIP" bootstrap function
+
+echo Done!
