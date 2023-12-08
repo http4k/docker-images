@@ -3,7 +3,7 @@ set -eu
 export AWS_LINUX_VERSION=2.0.20230912.0
 export JAVA_VERSION=jdk-$1
 
-docker build --build-arg AWS_LINUX_VERSION=$AWS_LINUX_VERSION \
+docker build --platform linux/arm64 --build-arg AWS_LINUX_VERSION=$AWS_LINUX_VERSION \
 --build-arg ARCH=aarch64 \
 --build-arg JAVA_VERSION="$JAVA_VERSION" \
 -t http4k/amazonlinux-java-graal-community-lambda-runtime:latest-arm64 \
