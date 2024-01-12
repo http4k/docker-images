@@ -5,7 +5,7 @@ cp source/"$1" ./function.jar
 FUNCTION_ZIP="${2:-function.zip}"
 
 echo Creating native-image...
-/usr/lib/graalvm/bin/native-image --enable-url-protocols=https -H:+ReportExceptionStackTraces --no-server -jar function.jar function
+/usr/lib/graalvm/bin/native-image --no-fallback --enable-url-protocols=https -H:+ReportExceptionStackTraces -jar function.jar function
 chmod 777 function
 
 echo Building ZIP...
