@@ -2,7 +2,7 @@
 set -eu
 docker login
 
-JAVA_VERSIONS=("11.0.18" "17.0.6" "19.0.2" "21.0.3")
+JAVA_VERSIONS=("11.0.26" "17.0.14" "21.0.6" "24.0.0")
 
 cd amazoncorretto-lambda-runtime
 for java_version in "${JAVA_VERSIONS[@]}"; do
@@ -18,8 +18,8 @@ for java_version in "${JAVA_VERSIONS[@]}"; do
 done
 cd ..
 
-GRAAL_JAVA_VERSIONS=("21.0.0" "22.0.1")
-AWS_LINUX_VERSIONS=("2.0.20240412.0")
+GRAAL_JAVA_VERSIONS=("21.0.2" "24.0.0")
+AWS_LINUX_VERSIONS=("2023.7.20250331.0" "2.0.20250321.0")
 
 cd amazonlinux-java-graal-community-lambda-runtime
 for java_version in "${GRAAL_JAVA_VERSIONS[@]}"; do
