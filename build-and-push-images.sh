@@ -2,7 +2,7 @@
 set -eu
 docker login
 
-JAVA_VERSIONS=("11.0.26" "17.0.14" "21.0.6" "24.0.0")
+JAVA_VERSIONS=("11.0.26" "17.0.14" "21.0.6" "24")
 
 cd amazoncorretto-lambda-runtime
 for java_version in "${JAVA_VERSIONS[@]}"; do
